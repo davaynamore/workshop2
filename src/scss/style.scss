@@ -1,3 +1,8 @@
+$img-size: 225px;
+$inner-height: 24vh;
+$translucent: rgba(0,0,0,.6);
+
+
 body {
 	font-family: Arial, sans-serif;
 	margin: 0;
@@ -13,9 +18,10 @@ body {
 	top: 0;
 	padding: 20px;
 	background-color: rgba(#fff, .3);
+	box-shadow: 0 2px 10px $translucent;
 
 	.logo {
-		max-width: 250px;
+		max-width: $img-size;
 
 		a{
 			display: block;
@@ -43,14 +49,12 @@ body {
 				a {
 					display: block;
 					padding: 15px;
-					border: 1px solid #000;
 					background-color: pink;
 					color: #000;
 					font-weight: bold;
 					text-align: center;
 					text-decoration: none;
 					text-transform: uppercase;
-					box-shadow: 2px 2px 10px 0 rgba(0,0,0,.3);
 					transition: all .3s ease;
 
 					&:hover {
@@ -78,7 +82,7 @@ section {
 		right: 0;
 		bottom: 0;
 		left: 0;
-		background-color: rgba(0,0,0,.7);
+		background-color: $translucent;
 		z-index: 1;
 	};
 
@@ -88,17 +92,19 @@ section {
 		align-items: center;
 		flex-basis: 40%;
 		padding: 20px;
-		border: 1px solid black;
-		box-shadow: 2px 2px 10px 0 rgba(0,0,0,.5);
-		background-color: rgba(#000, .8);
+		border-radius: 15px;
+		box-shadow: 2px 2px 10px 0 $translucent;
+		background-color: rgba(#000, .5);
 		position: relative;
 		z-index: 2;
 		color: white;
 		min-height: 24vh;
 
 		img {
-			max-width: 225px;
-			min-width: 225px;
+			max-width: $img-size;
+			min-width: $img-size;
+			border-radius: 10px;
+			overflow: hidden;
 		}
 
 		h2 {
