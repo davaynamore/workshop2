@@ -1,48 +1,17 @@
-function smoothScrolling(queries){
-	let sections = document.getElementsByTagName(queries);
-
-	sections.forEach = [].forEach;
-
-	const sectionsCollection = []
-
-	sections.forEach((el) => {
-		sectionsCollection.push(el.offsetTop);
-	})
-
-	let current = 0;
-	const elem = document.body;
-
-	if (elem.addEventListener) {
-		if ('onwheel' in document) {
-			elem.addEventListener("wheel", onWheel);
-		} else if ('onmousewheel' in document) {
-			elem.addEventListener("mousewheel", onWheel);
-		} else {
-			elem.addEventListener("MozMousePixelScroll", onWheel);
-		}
-	} else {
-		elem.attachEvent("onmousewheel", onWheel);
-	}
-
-	function onWheel(e) {
-		e = e || window.event;
-
-		var delta = e.deltaY || e.detail || e.wheelDelta;
-
-		e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-
-		current = current < 0 ? 0 : current;
-
-		if(delta >= 0) {
-			current = current >= sectionsCollection.length - 1 ? current : current + 1;
-		} else {
-			current -= 1;
-		}
+	document.body.addEventListener('click', (e) => {
+		const target = e.target;
+		if(!target.getAttribute('href')) return;
+		e.preventDefault();
+		const navList = target.parentElement.parentElement.children;
+		navList.forEach = Array.prototype.forEach;
+		navList.forEach((el) => {
+			el.firstChild.classList.remove('active');
+		})
+		target.classList.add('active');
+		const sectionId = target.getAttribute('href');
+		const targetSectionTop = document.querySelector(sectionId).offsetTop;
 		window.scrollTo({
-			top: sectionsCollection[current],
+			top: targetSectionTop,
 			behavior: 'smooth'
 		})
-	}
-}
-
-smoothScrolling('section')
+	})
