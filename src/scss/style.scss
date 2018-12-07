@@ -1,11 +1,13 @@
 $img-size: 225px;
 $inner-height: 24vh;
 $translucent: rgba(0,0,0,.6);
+$base-color: #8fd6bd;
 
 
 body {
 	font-family: Arial, sans-serif;
 	margin: 0;
+	color: $base-color;
 }
 
 .header {
@@ -49,17 +51,18 @@ body {
 				a {
 					display: block;
 					padding: 15px;
-					background-color: pink;
+					background-color: $base-color;
 					color: #000;
 					font-weight: bold;
 					text-align: center;
 					text-decoration: none;
 					text-transform: uppercase;
 					transition: all .3s ease;
+					border-radius: 5px;
 
 					&:hover {
 						background-color: #000;
-						color: pink;
+						color: $base-color;
 					};
 				}
 			}
@@ -97,7 +100,7 @@ section {
 		background-color: rgba(#000, .5);
 		position: relative;
 		z-index: 2;
-		color: white;
+		color: $base-color;
 		min-height: 24vh;
 
 		img {
