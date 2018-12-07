@@ -1,0 +1,112 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+}
+
+.header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+	top: 0;
+	padding: 20px;
+	background-color: rgba(#fff, .3);
+
+	.logo {
+		max-width: 250px;
+
+		a{
+			display: block;
+		}
+
+		img{
+			max-width: 100%;
+		}
+	}
+
+
+	.navigation {
+		flex-basis: 50%;
+
+		ul {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			justify-content: space-between;
+
+			li {
+				list-style: none;
+				min-width: 150px;
+
+				a {
+					display: block;
+					padding: 15px;
+					border: 1px solid #000;
+					background-color: pink;
+					color: #000;
+					font-weight: bold;
+					text-align: center;
+					text-decoration: none;
+					text-transform: uppercase;
+					box-shadow: 2px 2px 10px 0 rgba(0,0,0,.3);
+					transition: all .3s ease;
+
+					&:hover {
+						background-color: #000;
+						color: pink;
+					};
+				}
+			}
+		}
+	}
+}
+
+section {
+	background: url("../img/beetroot-bg.jpg") no-repeat;
+	background-size: cover;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba(0,0,0,.7);
+		z-index: 1;
+	};
+
+	div {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-basis: 40%;
+		padding: 20px;
+		border: 1px solid black;
+		box-shadow: 2px 2px 10px 0 rgba(0,0,0,.5);
+		background-color: rgba(#000, .8);
+		position: relative;
+		z-index: 2;
+		color: white;
+		min-height: 24vh;
+
+		img {
+			max-width: 225px;
+			min-width: 225px;
+		}
+
+		h2 {
+			flex-basis: 100%;
+			margin: 0;
+			font-size: 4rem;
+			text-transform: uppercase;
+			text-align: center;
+		}
+	}
+}
